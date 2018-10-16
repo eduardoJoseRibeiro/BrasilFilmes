@@ -7,5 +7,23 @@
 </ion-header>
 
 <ion-content padding>
-  {{ latest }}
+  <div *ngIf="populares && populares.results">
+    <div *ngFor="let filme of populares.results">
+      <h3> {{ filme.title }} - <small>{{ filme.vote_average }}</small></h3>
+      <span>
+        <small>
+          {{ filme.release_date }}
+        </small>
+      </span>
+      <img [src]="movieProvider.getImage(filme.poster_path)" alt="Poster">
+      <p>
+        {{ filme.overview }}
+      </p>
+    </div>
+  </div>
+  <div *ngElse>
+    <h4>
+      Nenhum filme foi encontrado
+    </h4>
+  </div>
 </ion-content>

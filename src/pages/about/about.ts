@@ -11,7 +11,7 @@ import { MovieProvider } from '../../providers/movie/movie';
 })
 export class AboutPage {
 
-  latest: object
+  populares: object
 
   constructor(
     public navCtrl: NavController,
@@ -21,7 +21,7 @@ export class AboutPage {
   ionViewDidLoad () {
     this.movieProvider.getPopularMovies().subscribe(
       data => {
-        this.latest = data
+        this.populares = data
         console.log(data)
       }, error => {
         console.log(error)
